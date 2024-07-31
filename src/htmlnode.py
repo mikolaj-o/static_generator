@@ -89,14 +89,14 @@ def text_node_to_html_node(text_node):
     if text_node.text_type not in types:
         raise Exception("Wrong text type")
     elif text_node.text_type == "text":
-        return LeafNode(text=text_node.value)
+        return LeafNode(value=text_node.text)
     elif text_node.text_type == "bold":
-        return LeafNode(tag="b", text=text_node.value)
+        return LeafNode(tag="b", value=text_node.text)
     elif text_node.text_type == "italic":
-        return LeafNode(tag="i", text=text_node.value)
+        return LeafNode(tag="i", value=text_node.text)
     elif text_node.text_type == "link":
-        return LeafNode(tag="a", text=text_node.value, props={"href": text_node.href})
+        return LeafNode(tag="a", value=text_node.text, props={"href": text_node.url})
     elif text_node.text_type == "image":
-        return LeafNode(tag="img", value="", props={"src": text_node.src, "alt": text_node.alt})
+        return LeafNode(tag="img", value="", props={"src": text_node.url, "alt": text_node.text})
     
     
