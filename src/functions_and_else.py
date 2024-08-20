@@ -1,5 +1,6 @@
 
 from textnode import (TextNode, text_type_code, text_type_bold, text_type_italic, text_type_text, text_type_link, text_type_image)
+from htmlnode import HTMLNode
 import re
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
     list_of_nodes = []
@@ -200,18 +201,10 @@ complex_test_blocks = [
     "* Mixed list\n> With another type",      # Shouldn't be matched strictly.
     "> Nested quote\n> > Nested deeper",      # Quote block
 ]
-test_blocks = [
-                        "# Heading 1",                            # Heading
-                        "## Heading 2",                           # Heading
-                        "```\ncode block\n```",                   # Code block
-                        "> Quote line 1\n> Quote line 2",         # Quote block
-                        "* Unordered item 1\n* Unordered item 2", # Unordered list
-                        "- Another unord item 1\n- Another 2",    # Unordered list
-                        "1. Ordered item 1\n2. Ordered item 2",   # Ordered list
-                        "Just a simple paragraph text.",          # Paragraph
-                        "Normal text\nWith multiple lines.",      # Paragraph
-                    ]
 
 for b in complex_test_blocks:
     print(block_to_block_type(b))
     
+def markdown_to_html_node(markdown):
+    children_list = []
+    return HTMLNode(children=children_list)
